@@ -103,7 +103,6 @@ async fn main() -> std::io::Result<()> {
     dotenv().ok(); // Load .env file
     println!("Server running on http://localhost:8080");
     HttpServer::new(|| App::new().service(get_balance))
-        .bind(("127.0.0.1", 8080))?
         .bind(("0.0.0.0", 8080))?
         .run()
         .await
